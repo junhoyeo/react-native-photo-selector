@@ -48,6 +48,7 @@ interface ImageListProps {
 }
 
 interface ZoomImageProps {
+  isZoomEnabled?: boolean
   closeButton?: JSX.Element
   closeContainerStyle?: ViewStyle
 }
@@ -105,6 +106,7 @@ const PhotoSelector = (props: PhotoSelectorProps): JSX.Element => {
 
   const flatListRef = useRef<FlatList>(null)
 
+  const isZoomEnabled = zoomImageOption?.isZoomEnabled || true;
   const imagesPerRow = imageListOption?.imagesPerRow
     ? imageListOption.imagesPerRow
     : 3
@@ -368,6 +370,7 @@ const PhotoSelector = (props: PhotoSelectorProps): JSX.Element => {
                   selectedMarker,
                   imageSize,
                   onClick: selectImage,
+                  isZoomEnabled,
                   setZoomImage,
                 }}
               />
