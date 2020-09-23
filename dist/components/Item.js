@@ -11,7 +11,7 @@ var ImageComp = function (_a) {
     });
 };
 var Item = observer(function (_a) {
-    var item = _a.item, selectedMarker = _a.selectedMarker, imageMargin = _a.imageMargin, imageSize = _a.imageSize, onClick = _a.onClick, setZoomImage = _a.setZoomImage;
+    var item = _a.item, selectedMarker = _a.selectedMarker, imageMargin = _a.imageMargin, imageSize = _a.imageSize, onClick = _a.onClick, isZoomEnabled = _a.isZoomEnabled, setZoomImage = _a.setZoomImage;
     var localSelected = CommonStore.localSelected;
     var selectedIndex = localSelected
         .map(function (x) { return x.uri; })
@@ -24,7 +24,9 @@ var Item = observer(function (_a) {
         marginBottom: imageMargin,
         marginRight: imageMargin,
     }} onPress={function () {
-        setZoomImage(item.uri);
+        isZoomEnabled
+            ? setZoomImage(item.uri)
+            : onClick(item);
     }}>
         <ImageComp {...{
         uri: item.uri,

@@ -6,7 +6,8 @@ export interface ItemProps {
     imageMargin: number;
     imageSize: number;
     onClick: (item: PhotoProps) => void;
+    isZoomEnabled?: boolean;
     setZoomImage: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
-declare const Item: ({ item, selectedMarker, imageMargin, imageSize, onClick, setZoomImage, }: ItemProps) => JSX.Element;
+declare const Item: ({ item, selectedMarker, imageMargin, imageSize, onClick, isZoomEnabled, setZoomImage, }: ItemProps) => JSX.Element;
 export default Item;

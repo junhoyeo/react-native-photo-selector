@@ -20,6 +20,7 @@ interface ImageListProps {
     imageMargin?: number;
 }
 interface ZoomImageProps {
+    isZoomEnabled?: boolean;
     closeButton?: JSX.Element;
     closeContainerStyle?: ViewStyle;
 }

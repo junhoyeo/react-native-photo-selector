@@ -72,6 +72,7 @@ var PhotoSelector = function (props) {
     var _p = useState(), groupName = _p[0], setGroupName = _p[1];
     var _q = useState([]), folderList = _q[0], setForderList = _q[1];
     var flatListRef = useRef(null);
+    var isZoomEnabled = (zoomImageOption === null || zoomImageOption === void 0 ? void 0 : zoomImageOption.isZoomEnabled) || true;
     var imagesPerRow = (imageListOption === null || imageListOption === void 0 ? void 0 : imageListOption.imagesPerRow) ? imageListOption.imagesPerRow
         : 3;
     var imageMargin = (imageListOption === null || imageListOption === void 0 ? void 0 : imageListOption.imageMargin) ? imageListOption.imageMargin
@@ -254,6 +255,7 @@ var PhotoSelector = function (props) {
             selectedMarker: selectedMarker,
             imageSize: imageSize,
             onClick: selectImage,
+            isZoomEnabled: isZoomEnabled,
             setZoomImage: setZoomImage,
         }}/>);
     }} numColumns={imagesPerRow} keyExtractor={function (item, i) { return "photo-selector-" + i; }} data={data} ListEmptyComponent={<>
